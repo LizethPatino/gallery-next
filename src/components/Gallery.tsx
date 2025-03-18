@@ -1,7 +1,7 @@
 import { GalleryProps } from "@/types";
 import Image from "next/image";
 
-export default function gallery({images}: GalleryProps){
+export default function Gallery({images}: GalleryProps){
     return(
         <div>
         {images.map((img)=>(
