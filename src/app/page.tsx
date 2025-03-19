@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Gallery from "@/components/Gallery";
 import SearchBar from "@/components/SearchBar";
-import { getUnsplashImages } from "@/lib/unsplashApi";
+import { getUnsplashImages } from "@/lib/unsplashService";
 import { ImageType } from "@/types";
 
 export default function Home() {
