@@ -18,7 +18,6 @@ export default function Home() {
     fetchInitialImages();
   }, []);
 
-
   const handleSearch = async () => {
     const newImages = await getUnsplashImages(query || "cats");
     setImages(newImages);
