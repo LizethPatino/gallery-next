@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Gallery({images}: GalleryProps){
     return(
-        <div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
         {images.map((img)=>(
             <Image
                 key={img.id}
@@ -11,6 +11,7 @@ export default function Gallery({images}: GalleryProps){
                 alt={img.alt_description}
                 width={300} 
                 height={200} 
+                className="rounded-lg shadow-md hover:scale-105 transition-transform"
             />
         ))}
         </div>
