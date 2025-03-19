@@ -25,9 +25,11 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className="w-full">
       <SearchBar query={query} setQuery={setQuery} onSearch={handleSearch} />
-      <Gallery images={images} />
+      <div className="mt-8">
+        <Gallery images={images} />
+      </div>
     </div>
   );
 }
