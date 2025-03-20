@@ -21,7 +21,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       },
       params: {
         query,
-        per_page: 12,
+        per_page: 4,
         orientation: "portrait",
       },
     });
