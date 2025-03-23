@@ -1,4 +1,3 @@
-import { Dispatch, SetStateAction } from "react";
 
 export interface ImageType {
     id: string;
@@ -6,13 +5,3 @@ export interface ImageType {
     alt_description: string;
     likes:number;
 }
-
-export interface GalleryProps {
-    images: ImageType[];
-}
-
-export interface SearchBarProps {
-    query:string;
-    setQuery:Dispatch<SetStateAction<string>>;
-    onSearch: () => void;
-} 
