@@ -1,21 +1,32 @@
 import { ImageType } from "@/types";
+import { useState } from "react";
 
 export interface SortOptionsProps {
-    imagesList: ImageType[];
-    onSort: (sortedList: ImageType[]) => void;
+  imagesList: ImageType[];
+  onSort: (sortedList: ImageType[]) => void;
 }
 
+export default function SortOptions({ imagesList, onSort }: SortOptionsProps) {
+  const [selectedOption, setSelectedOption] = useState("color");
 
-export default function SortOptions ({ imagesList, onSort }: SortOptionsProps) {
+  const handleChange = (value: string) => {
+    setSelectedOption(value);
 
- 
-    const orderByLikes = () =>{
-       console.log('imagesList', imagesList.map(image=>image.likes && image.alt_description));
-       const sorted = imagesList.slice().sort((a, b) => a.likes - b.likes);
-       onSort(sorted);
+    if (value === "likes") {
+      const sorted = [...imagesList].sort((a, b) => a.likes - b.likes);
+      onSort(sorted);
+    } else {
+      console.log("Ordenando por color... (pendiente de implementación)");
     }
+  };
 
-    return(
-        <button onClick={orderByLikes}>Ordenar</button>
-    );
+  return (
+    <div>
+      <div>Order By:</div>
+      <select value={selectedOption} onChange={(e) => handleChange(e.target.value)}>
+        <option value="likes">Likes</option>
+        <option value="color">Color</option>
+      </select>
+    </div>
+  );
 }

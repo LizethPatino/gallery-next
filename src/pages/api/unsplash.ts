@@ -1,8 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import axios from "axios";
 
-const UNSPLASH_API_URL = process.env.UNSPLASH_API_URL!;
-const UNSPLASH_ACCESS_KEY = process.env.UNSPLASH_ACCESS_KEY!;
+const { UNSPLASH_API_URL, UNSPLASH_ACCESS_KEY } = process.env;
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "GET") {
@@ -21,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       },
       params: {
         query,
-        per_page: 4,
+        per_page: 12,
         orientation: "portrait",
       },
     });
