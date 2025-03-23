@@ -1,3 +1,5 @@
+"use client";
+
 import { useImageStore } from "@/lib/useImageStore";
 import Image from "next/image";
 

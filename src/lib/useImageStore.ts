@@ -17,7 +17,7 @@ export const useImageStore = create<ImageStore>((set, get) => ({
   query: "",
   selectedOption: "color",
 
-  setQuery: (query) => set({ query }), // ✅ CORREGIDO: `setQuery` ahora actualiza `query`
+  setQuery: (query) => set({ query }),
 
   fetchImages: async (query = get().query || "lobos") => {  
     const images = await getUnsplashImages(query);

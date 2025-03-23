@@ -1,3 +1,5 @@
+"use client";
+
 import { useImageStore } from "@/lib/useImageStore";
 
 export default function SearchBar() {
