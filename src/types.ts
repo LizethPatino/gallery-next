@@ -4,4 +4,5 @@ export interface ImageType {
     urls: { small: string};
     alt_description: string;
     likes:number;
+    created_at:string;
 }

@@ -5,17 +5,17 @@ import { getUnsplashImages } from "@/lib/unsplashService";
 interface ImageStore {
   images: ImageType[];
   query: string;
-  selectedOption: "color" | "likes";
+  selectedOption: "date" | "likes";
 
   setQuery: (query: string) => void;
   fetchImages: (query?: string) => Promise<void>;
-  sortImages: (option: "color" | "likes") => void;
+  sortImages: (option: "date" | "likes") => void;
 }
 
 export const useImageStore = create<ImageStore>((set, get) => ({
   images: [],
   query: "",
-  selectedOption: "color",
+  selectedOption: "date",
 
   setQuery: (query) => set({ query }),
 
@@ -26,15 +26,16 @@ export const useImageStore = create<ImageStore>((set, get) => ({
   },
 
   sortImages: (option) => {
-    const sortedImages = [...get().images];
+    let sortedImages = [...get().images];
 
     if (option === "likes") {
-      const sorted = sortedImages.sort((a, b) => a.likes - b.likes);
-      set({ images: sorted, selectedOption: option });
-    } else {
-      console.log("Ordenando por color... (pendiente de implementación)");
+      sortedImages = sortedImages.slice().sort((a, b) => a.likes - b.likes);
+    } else if (option === "date") {
+      sortedImages = sortedImages.slice().sort((a, b) => 
+        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+      );
     }
-
+    
     set({ images: sortedImages, selectedOption: option });
   },
 }));
