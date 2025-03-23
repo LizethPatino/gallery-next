@@ -1,8 +1,11 @@
-import { GalleryProps } from "@/types";
+import { useImageStore } from "@/lib/useImageStore";
 import Image from "next/image";
 
-export default function Gallery({images}: GalleryProps){
-    return (
+export default function Gallery(){
+   
+  const { images } = useImageStore();
+  
+  return (
        
 <div className="container mx-auto px-4">
   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-8 p-6">

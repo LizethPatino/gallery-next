@@ -1,6 +1,8 @@
-import { SearchBarProps } from "@/types";
+import { useImageStore } from "@/lib/useImageStore";
 
-export default function SearchBar({ query, setQuery, onSearch }: SearchBarProps) {
+export default function SearchBar() {
+  const { query, setQuery, fetchImages } = useImageStore();
+
   return (
     <div className="flex flex-col items-center w-full px-4 sm:px-6 mt-10">
       <h1 className="text-2xl font-semibold mb-4 text-gray-800 text-center">
@@ -17,7 +19,7 @@ export default function SearchBar({ query, setQuery, onSearch }: SearchBarProps)
         />
         <button
           className="bg-blue-500 text-white px-5 py-2 rounded-full hover:bg-blue-600 transition text-sm sm:text-base"
-          onClick={onSearch}
+          onClick={() => fetchImages(query || "cats")}
         >
           Search
         </button>
