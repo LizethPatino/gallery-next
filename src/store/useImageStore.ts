@@ -19,8 +19,9 @@ export const useImageStore = create<ImageStore>((set, get) => ({
 
   setQuery: (query) => set({ query }),
 
-  fetchImages: async (query = get().query || "lobos") => {  
-    const images = await getUnsplashImages(query);
+  fetchImages: async (query = get().query || "perros") => {  
+    const response = await getUnsplashImages(query);
+    const images = response.results || [];
     set({ images });
   },
 
@@ -28,7 +29,8 @@ export const useImageStore = create<ImageStore>((set, get) => ({
     const sortedImages = [...get().images];
 
     if (option === "likes") {
-      sortedImages.sort((a, b) => a.likes - b.likes);
+      const sorted = sortedImages.sort((a, b) => a.likes - b.likes);
+      set({ images: sorted, selectedOption: option });
     } else {
       console.log("Ordenando por color... (pendiente de implementación)");
     }

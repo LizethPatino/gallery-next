@@ -1,6 +1,6 @@
 "use client";
 
-import { useImageStore } from "@/lib/useImageStore";
+import { useImageStore } from "@/store/useImageStore";
 
 export default function SearchBar() {
   const { query, setQuery, fetchImages } = useImageStore();

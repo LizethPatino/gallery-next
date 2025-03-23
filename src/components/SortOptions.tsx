@@ -1,4 +1,4 @@
-import { useImageStore } from "@/lib/useImageStore";
+import { useImageStore } from "@/store/useImageStore";
 
 export default function SortOptions() {
   const { selectedOption, sortImages } = useImageStore();

@@ -1,6 +1,6 @@
 "use client";
 
-import { useImageStore } from "@/lib/useImageStore";
+import { useImageStore } from "@/store/useImageStore";
 import Image from "next/image";
 
 export default function Gallery(){
