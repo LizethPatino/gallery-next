@@ -6,13 +6,13 @@ export async function GET(req: Request) {
 
   try {
     const res = await fetch(
-      `https://api.unsplash.com/search/photos?query=${query}&per_page=5&client_id=${process.env.UNSPLASH_ACCESS_KEY}`
+      `https://api.unsplash.com/search/photos?query=${query}&per_page=12&client_id=${process.env.UNSPLASH_ACCESS_KEY}`
     );
 
     if (!res.ok) throw new Error("Failed to fetch images");
 
     const data = await res.json();
-    return NextResponse.json(data); // 🔹 Devuelve solo 5 imágenes
+    return NextResponse.json(data);
   } catch (error) {
     console.error("Error fetching images:", error);
     return NextResponse.json({ error: "Failed to fetch images" }, { status: 500 });
