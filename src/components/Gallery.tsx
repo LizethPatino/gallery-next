@@ -3,18 +3,17 @@
 import { useEffect } from "react";
 import { useImageStore } from "@/store/useImageStore";
 import Image from "next/image";
+import Pagination from "./Pagination";
 
 
 export default function Gallery() {
   const images = useImageStore((state) => state.images);
-  const nextPage = useImageStore((state) => state.nextPage);
-  const prevPage = useImageStore((state) => state.prevPage);
 
   const { fetchImages, query, currentPage } = useImageStore();
 
   useEffect(() => {
     fetchImages();
-  }, [query, currentPage]); // Solo se ejecuta cuando cambia la query o la página
+  }, [query, currentPage, fetchImages]);
   
   return (
     <div className="mx-auto px-2 max-w-full">
@@ -30,16 +29,7 @@ export default function Gallery() {
           />
         ))}
       </div>
-
-      <div className="flex justify-center mt-6">
-        <button onClick={prevPage} disabled={currentPage === 1} className="px-4 py-2 mx-2 bg-primary rounded disabled:opacity-50 text-white  hover:bg-primary-dark">
-          Before
-        </button>
-        <span className="px-4 py-2 mx-2">Page {currentPage}</span>
-        <button onClick={nextPage} className="px-4 py-2 mx-2 bg-primary rounded hover:bg-primary-dark text-white">
-          Next
-        </button>
-      </div>
+      <Pagination/>
     </div>
   );
 }

@@ -21,8 +21,8 @@ export const useImageStore = create<ImageStore>((set, get) => ({
   images: [],
   query: "",
   selectedOption: "date",
-  currentPage: 1, // Página actual
-  imagesPerPage: 15, // Número de imágenes por página
+  currentPage: 1,
+  imagesPerPage: 15,
 
   setQuery: (query) => set({ query: query, currentPage: 1 }),
 
@@ -40,7 +40,7 @@ export const useImageStore = create<ImageStore>((set, get) => ({
     let sortedImages = [...get().images];
 
     if (option === "likes") {
-      sortedImages = sortedImages.sort((a, b) => a.likes - b.likes);
+      sortedImages = sortedImages.sort((a, b) => b.likes - a.likes);
     } else if (option === "date") {
       sortedImages = sortedImages.sort((a, b) => 
         new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
@@ -55,8 +55,6 @@ export const useImageStore = create<ImageStore>((set, get) => ({
       const nextPage = state.currentPage + 1;
       return { currentPage: nextPage };
     });
-  
-    // Llamar fetchImages en un `useEffect` en el componente en lugar de aquí
   },
   
   prevPage: () => {
@@ -64,7 +62,6 @@ export const useImageStore = create<ImageStore>((set, get) => ({
       const prevPage = state.currentPage > 1 ? state.currentPage - 1 : 1;
       return { currentPage: prevPage };
     });
-  
-    // Llamar fetchImages en un `useEffect` en el componente en lugar de aquí
   },
+  
 }));

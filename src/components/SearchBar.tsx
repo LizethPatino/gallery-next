@@ -8,8 +8,8 @@ export default function SearchBar() {
   const [inputValue, setInputValue] = useState(query);
 
   const handleSearch = () => {
-    setQuery(inputValue); // Actualiza el query en el store
-    fetchImages(inputValue || "cats"); // Ejecuta la búsqueda solo al hacer clic o presionar Enter
+    setQuery(inputValue);
+    fetchImages(inputValue || "cats");
   };
 
   return (
@@ -21,11 +21,11 @@ export default function SearchBar() {
           placeholder="Type a keyword"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && handleSearch()} // Búsqueda al presionar Enter
+          onKeyDown={(e) => e.key === "Enter" && handleSearch()}
         />
         <button
           className="bg-blue-500 text-white px-5 py-2 rounded-full hover:bg-blue-600 transition text-sm sm:text-base"
-          onClick={handleSearch} // Búsqueda solo cuando se hace clic
+          onClick={handleSearch}
         >
           Search
         </button>
