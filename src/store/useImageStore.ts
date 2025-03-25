@@ -24,14 +24,14 @@ export const useImageStore = create<ImageStore>((set, get) => ({
   currentPage: 1, // Página actual
   imagesPerPage: 15, // Número de imágenes por página
 
-  setQuery: (query) => set({ query }),
+  setQuery: (query) => set({ query: query, currentPage: 1 }),
 
   setCurrentPage: (page) => {
     set({ currentPage: page });
   },
 
   fetchImages: async (query = get().query, page = get().currentPage, perPage = get().imagesPerPage) => {  
-    const searchQuery = query && query.trim() !== "" ? query : "perros"; // Asegurar que no sea vacío
+    const searchQuery = query && query.trim() !== "" ? query : "perros";
     const response = await getUnsplashImages(searchQuery, page, perPage);
     set({ images: response.results || [] });
   },
