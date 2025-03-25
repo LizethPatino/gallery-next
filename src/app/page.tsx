@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
-import { useImageStore } from "@/store/useImageStore";
 import Gallery from "@/components/Gallery";
 import SearchBar from "@/components/SearchBar";
 import SortOptions from "@/components/SortOptions";
@@ -10,11 +8,6 @@ import LoginButton from "@/components/LoginButton";
 
 export default function Home() {
   const { data: session, status } = useSession();
-  const fetchImages = useImageStore((state) => state.fetchImages);
-
-  useEffect(() => {
-    fetchImages();
-  }, [fetchImages]);
 
   if (status === "loading") {
     return <div>Loading...</div>;

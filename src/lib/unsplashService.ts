@@ -1,6 +1,6 @@
-export async function getUnsplashImages(query: string) {
+export async function getUnsplashImages(query: string, page:number, perPage:number) {
   try {
-    const response = await fetch(`/api/unsplash?query=${query}`);
+    const response = await fetch(`/api/unsplash?query=${query}&page=${page}&per_page=${perPage}`);
     if (!response.ok) throw new Error("Failed to fetch images");
 
     const data = await response.json();
