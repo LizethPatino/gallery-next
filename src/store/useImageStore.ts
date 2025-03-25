@@ -51,14 +51,20 @@ export const useImageStore = create<ImageStore>((set, get) => ({
   },
 
   nextPage: () => {
-    const nextPage = get().currentPage + 1;
-    set({ currentPage: nextPage });
-    get().fetchImages(get().query, nextPage, get().imagesPerPage);
+    set((state) => {
+      const nextPage = state.currentPage + 1;
+      return { currentPage: nextPage };
+    });
+  
+    // Llamar fetchImages en un `useEffect` en el componente en lugar de aquí
   },
-
+  
   prevPage: () => {
-    const prevPage = get().currentPage > 1 ? get().currentPage - 1 : 1;
-    set({ currentPage: prevPage });
-    get().fetchImages(get().query, prevPage, get().imagesPerPage);
+    set((state) => {
+      const prevPage = state.currentPage > 1 ? state.currentPage - 1 : 1;
+      return { currentPage: prevPage };
+    });
+  
+    // Llamar fetchImages en un `useEffect` en el componente en lugar de aquí
   },
 }));

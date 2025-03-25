@@ -7,17 +7,15 @@ import Image from "next/image";
 
 export default function Gallery() {
   const images = useImageStore((state) => state.images);
-  const currentPage = useImageStore((state) => state.currentPage);
-  const imagesPerPage = useImageStore((state) => state.imagesPerPage);
-  const fetchImages = useImageStore((state) => state.fetchImages);
   const nextPage = useImageStore((state) => state.nextPage);
   const prevPage = useImageStore((state) => state.prevPage);
 
-  useEffect(() => {
-    console.log("✅ useEffect en Gallery ejecutado con página:", currentPage);
-    fetchImages(undefined, currentPage, imagesPerPage);
-  }, [currentPage, imagesPerPage]);
+  const { fetchImages, query, currentPage } = useImageStore();
 
+  useEffect(() => {
+    fetchImages();
+  }, [query, currentPage]); // Solo se ejecuta cuando cambia la query o la página
+  
   return (
     <div className="mx-auto px-2 max-w-full">
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 p-6">
