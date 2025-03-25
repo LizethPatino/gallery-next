@@ -1,6 +1,7 @@
 "use client";
 
 import { useImageStore } from "@/store/useImageStore";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 
 export default function Pagination() {
   const nextPage = useImageStore((state) => state.nextPage);
@@ -12,17 +13,19 @@ export default function Pagination() {
       { currentPage > 1 &&
       <button
         onClick={prevPage}
-        className="px-4 py-2 mx-2 bg-primary rounded text-white  hover:bg-primary-dark"
+        className="flex items-center gap-2 px-4 py-2 mx-2 bg-primary rounded-md text-white  hover:bg-primary-dark"
       >
+         <ChevronLeftIcon className="w-5 h-5" />
         Before
       </button>
         }
       <span className="px-4 py-2 mx-2">Page {currentPage}</span>
       <button
         onClick={nextPage}
-        className="px-4 py-2 mx-2 bg-primary rounded hover:bg-primary-dark text-white"
+        className="flex items-center gap-2 px-4 py-2 mx-2 bg-primary rounded-md hover:bg-primary-dark text-white"
       >
         Next
+        <ChevronRightIcon className="w-5 h-5" />
       </button>
     </div>
   );

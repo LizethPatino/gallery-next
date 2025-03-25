@@ -24,17 +24,6 @@ export default function Home() {
           <Gallery />
         </div>
       </div>
-
-      {!session ? (
-        <div className="mt-4 flex flex-col items-center">
-          <p className="text-gray-600">Inicia sesión para más funciones</p>
-          <LoginButton />
-        </div>
-      ) : (
-        <button onClick={() => signOut()} className="p-2 mt-4 bg-red-500 text-white rounded">
-          Cerrar sesión
-        </button>
-      )}
     </div>
   );
 }
