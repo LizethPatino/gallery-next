@@ -6,7 +6,7 @@ export async function GET(req: Request) {
 
   try {
     const res = await fetch(
-      `${process.env.UNSPLASH_API_URL}/search/photos?query=${query}&per_page=12&client_id=${process.env.UNSPLASH_ACCESS_KEY}`
+      `${process.env.UNSPLASH_API_URL}/search/photos?query=${query}&per_page=15&client_id=${process.env.UNSPLASH_ACCESS_KEY}`
     );
 
     if (!res.ok) throw new Error("Failed to fetch images");

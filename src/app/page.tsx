@@ -21,18 +21,17 @@ export default function Home() {
   }
 
   return (
-    <div className="w-full px-2 max-w-7xl mx-auto">
+    <div className="px-2">
       <SearchBar />
       <div className="mt-4 flex flex-col">
         <div className="self-end mb-4">
           <SortOptions />
         </div>
-        <div className="flex-1 w-full">
-          <Gallery /> {/* 🔹 Ahora la galería siempre se muestra */}
+        <div className="flex-1">
+          <Gallery />
         </div>
       </div>
 
-      {/* 🔹 Mostrar botón de login solo si no hay sesión */}
       {!session ? (
         <div className="mt-4 flex flex-col items-center">
           <p className="text-gray-600">Inicia sesión para más funciones</p>
