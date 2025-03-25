@@ -7,10 +7,6 @@ export default function SearchBar() {
 
   return (
     <div className="flex flex-col items-center w-full px-4 sm:px-6 mt-10">
-      <h1 className="text-2xl font-semibold mb-4 text-gray-800 text-center">
-        Search for Images
-      </h1>
-
       <div className="w-full max-w-lg flex items-center bg-white p-2 rounded-full shadow-lg border border-gray-200">
         <input
           type="text"

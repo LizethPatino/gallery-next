@@ -9,7 +9,7 @@ import { signOut, useSession } from "next-auth/react";
 import LoginButton from "@/components/LoginButton";
 
 export default function Home() {
-  const { data: session, status } = useSession();  // Acceder a la sesión
+  const { data: session, status } = useSession();
   const fetchImages = useImageStore((state) => state.fetchImages);
 
   useEffect(() => {
@@ -17,17 +17,7 @@ export default function Home() {
   }, [fetchImages]);
 
   if (status === "loading") {
-    return <div>Loading...</div>;  // Mostrar un loading mientras se obtiene la sesión
-  }
-
-  if (!session) {
-    return (
-      <div>
-        <h1>No estás autenticado</h1>
-        {/* Muestra el botón de login si no hay sesión */}
-        <LoginButton />
-      </div>
-    );
+    return <div>Loading...</div>;
   }
 
   return (
@@ -38,16 +28,21 @@ export default function Home() {
           <SortOptions />
         </div>
         <div className="flex-1 w-full">
-          <Gallery />
+          <Gallery /> {/* 🔹 Ahora la galería siempre se muestra */}
         </div>
       </div>
-       {/* Agregar un botón para cerrar sesión */}
-       <h2>info usuario:</h2>
-       <p>{session.user?.name}</p>
-       <p>{session.user?.email}</p>
-       <button onClick={() => signOut()} className="p-2 mt-4 bg-red-500 text-white rounded">
-        Cerrar sesión
-      </button>
+
+      {/* 🔹 Mostrar botón de login solo si no hay sesión */}
+      {!session ? (
+        <div className="mt-4 flex flex-col items-center">
+          <p className="text-gray-600">Inicia sesión para más funciones</p>
+          <LoginButton />
+        </div>
+      ) : (
+        <button onClick={() => signOut()} className="p-2 mt-4 bg-red-500 text-white rounded">
+          Cerrar sesión
+        </button>
+      )}
     </div>
   );
 }
