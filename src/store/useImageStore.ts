@@ -1,21 +1,7 @@
 import { create } from "zustand";
-import { ImageType } from "@/types";
+import { ImageStore } from "@/types";
 import { getUnsplashImages } from "@/lib/unsplashService";
 
-interface ImageStore {
-  images: ImageType[];
-  query: string;
-  selectedOption: "date" | "likes";
-  currentPage: number;
-  imagesPerPage: number;
-  
-  setCurrentPage: (page: number) => void;
-  setQuery: (query: string) => void;
-  fetchImages: (query?: string, page?: number, perPage?: number) => Promise<void>;
-  sortImages: (option: "date" | "likes") => void;
-  nextPage: () => void;
-  prevPage: () => void;
-}
 
 export const useImageStore = create<ImageStore>((set, get) => ({
   images: [],
