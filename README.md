@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# **Gallery Next.js Project (WIP)**  
 
-## Getting Started
+## 📌 **Project Overview**  
+This is a **photo gallery application** built with **Next.js**. The project integrates the **Unsplash API**, allowing users to browse high-quality images with sorting options. It is currently **a work in progress (WIP)**, with planned features like authentication, a favorites section, and more.  
 
-First, run the development server:
+The project will be **deployed on Vercel** once completed.  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 **Tech Stack**  
+- **Next.js** for server-side rendering, client-side rendering, and static site generation
+- **Next.js Image Optimization** for improved performance  
+- **React** for building UI components  
+- **Next-Auth** (WIP) for user authentication  
+- **Zustand** for global state management  
+- **Axios** for API requests  
+- **TailwindCSS** for modern styling  
+- **Heroicons** for UI icons  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📂 **Project Features (Implemented & Planned)**  
+✅ **Unsplash API integration**  
+✅ **Sorting images by likes and recent photos**  
+✅ **Global state management using Zustand**  
+✅ **Pagination**  
+✅ **Responsive design**  
+✅ **Image search functionality**  
+✅ **Modern UI with Tailwind CSS**  
+✅ **Unsplash API integration**  
+✅ **Modern UI with TailwindCSS and Heroicons**  
+🚧 **Authentication with Next-Auth (WIP)**  
+🚀 **Favorites section (Planned)**  
+🚀 **Unit testing (Planned)**  
+🚀 **Image uploads & management (Planned)**  
+🚀 **Search and filter functionality (Planned)**  
+🚀 **Dark mode support (Planned)**  
+🚀 **Deployment on Vercel (Planned)**  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠 **Setup & Installation**  
+1. Clone the repository:  
+   ```bash
+   git clone https://github.com/LizethPatino/gallery-next.git
+   ```  
+2. Navigate to the project directory:  
+   ```bash
+   cd gallery-next
+   ```  
+3. Install dependencies:  
+   ```bash
+   npm install
+   ```  
+4. Start the development server:  
+   ```bash
+   npm run dev
+   ```  
+5. Open your browser and go to `http://localhost:3000`  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
