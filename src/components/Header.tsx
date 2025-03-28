@@ -25,6 +25,11 @@ export default function Header() {
               Inicio
             </Link>
           </li>
+         <li>
+         <Link href="/favorites" className="text-gray-700 hover:text-gray-900">
+              Favorites ❤️
+            </Link>
+          </li> 
         </ul>
       </nav>
     </header>

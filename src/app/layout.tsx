@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import SessionProviderWrapper from "@/components/SessionProviderWrapper";
 import "./globals.css";
 import Header from "@/components/Header";
+import FavoritesLoader from "@/components/FavoritesLoader";
 
 export const metadata: Metadata = {
   title: "AstraPic",
@@ -26,6 +27,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <SessionProviderWrapper>
+          <FavoritesLoader/>
           <Header/>
               {children}
           </SessionProviderWrapper>

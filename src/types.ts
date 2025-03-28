@@ -13,6 +13,7 @@ export interface ImageStore {
   selectedOption: "date" | "likes";
   currentPage: number;
   imagesPerPage: number;
+  favorites: ImageType[];
 
   setCurrentPage: (page: number) => void;
   setQuery: (query: string) => void;
@@ -20,4 +21,6 @@ export interface ImageStore {
   sortImages: (option: "date" | "likes") => void;
   nextPage: () => void;
   prevPage: () => void;
+  toggleFavorite: (image: ImageType) => void;
+  loadFavorites: () => void;
 }

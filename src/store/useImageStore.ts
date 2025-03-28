@@ -9,7 +9,28 @@ export const useImageStore = create<ImageStore>((set, get) => ({
   selectedOption: "date",
   currentPage: 1,
   imagesPerPage: 15,
+  favorites: [],
 
+  toggleFavorite: (image) => {
+    const { favorites } = get();
+    const isFavorite = favorites.some((fav)=> fav.id === image.id);
+    let updatedFavorites;
+
+    if (isFavorite) {
+      updatedFavorites = favorites.filter((fav) => fav.id !== image.id);
+    } else {
+      updatedFavorites = [...favorites, image]
+    }
+
+    set({favorites: updatedFavorites});
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+  },
+
+  loadFavorites: () => {
+    const storedFavorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    set({ favorites: storedFavorites });
+  },
+  
   setQuery: (query) => set({ query: query, currentPage: 1 }),
 
   setCurrentPage: (page) => {
