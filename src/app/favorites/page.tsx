@@ -25,7 +25,7 @@ export default function FavoritesPage() {
                 />
                 <button
                   onClick={() => toggleFavorite(img)}
-                  className="absolute top-2 right-2 text-white bg-black/50 p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                  className="absolute top-2 right-2 text-white bg-black/50 p-1 rounded-full opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity"
                 >
                   <HeartIcon className="w-6 h-6 text-red-500" />
                 </button>
