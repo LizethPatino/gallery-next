@@ -26,7 +26,7 @@ The project will be **deployed on Vercel** once completed.
 ✅ **Unsplash API integration**  
 ✅ **Modern UI with TailwindCSS and Heroicons**  
 🚧 **Authentication with Next-Auth (WIP)**  
-🚀 **Favorites section (Planned)**  
+🚧 **Favorites section (WIP)**  
 🚀 **Unit testing (Planned)**  
 🚀 **Image uploads & management (Planned)**  
 🚀 **Search and filter functionality (Planned)**  
