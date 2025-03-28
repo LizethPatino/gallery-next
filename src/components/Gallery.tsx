@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import { useImageStore } from "@/store/useImageStore";
 import Image from "next/image";
-import Pagination from "./Pagination";
 import { HeartIcon } from "@heroicons/react/24/solid";
 import { HeartIcon as HeartOutline } from "@heroicons/react/24/outline";
 
@@ -48,9 +47,6 @@ export default function Gallery() {
               </div>
             );
           })}
-        </div>
-        <div className="flex justify-center mt-8 mb-8">
-          <Pagination />
         </div>
       </>
     ) : (
