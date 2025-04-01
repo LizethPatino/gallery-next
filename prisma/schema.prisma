@@ -22,6 +22,8 @@ model User {
   accounts Account[]
   sessions Session[]
   favorites     Favorite[] 
+
+   @@map("user") 
 }
 
 model Favorite {
@@ -31,6 +33,8 @@ model Favorite {
   imageUrl    String
   description String
   user        User     @relation(fields: [userId], references: [id])
+
+   @@map("favorite") 
 }
 
 model Session {
@@ -39,6 +43,8 @@ model Session {
   userId       String
   user         User     @relation(fields: [userId], references: [id])
   expires      DateTime
+
+   @@map("session") 
 }
 
 model Account {
@@ -56,4 +62,6 @@ model Account {
   id_token          String?
   session_state     String?
   @@unique([provider, providerAccountId])  // Agregar clave compuesta
+
+   @@map("account") 
 }
