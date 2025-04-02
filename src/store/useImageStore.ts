@@ -1,7 +1,7 @@
 import { create } from "zustand";
-import { ImageStore } from "@/types/ImageTypes";
+import { ImageStore, ImageType } from "@/types/ImageTypes";
 import { getUnsplashImages } from "@/lib/unsplashService";
-
+import { addFavorite } from "@/lib/favoritesService";
 
 export const useImageStore = create<ImageStore>((set, get) => ({
   images: [],
@@ -11,7 +11,7 @@ export const useImageStore = create<ImageStore>((set, get) => ({
   imagesPerPage: 15,
   favorites: [],
 
-  toggleFavorite: (image) => {
+  toggleFavorite: async (image: ImageType, userId:string) => {
     const { favorites } = get();
     const isFavorite = favorites.some((fav)=> fav.id === image.id);
     let updatedFavorites;
@@ -23,12 +23,33 @@ export const useImageStore = create<ImageStore>((set, get) => ({
     }
 
     set({favorites: updatedFavorites});
-    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+
+     const { id, urls, alt_description } = image;
+    
+     try {
+      if (isFavorite) {
+        // Si se está eliminando el favorito de la base de datos
+       // const data = await removeFavorite(userId, id);
+        console.log("Favorite removed:", data);
+      } else {
+        const data = await addFavorite(userId, id, urls.small, alt_description);
+        console.log("Favorite added:", data);
+      }
+    } catch (error) {
+      console.error("Error with favorite operation:", error);
+      set({ favorites: favorites });
+    }
+
   },
 
-  loadFavorites: () => {
-    const storedFavorites = JSON.parse(localStorage.getItem("favorites") || "[]");
-    set({ favorites: storedFavorites });
+  loadFavorites: async (userId:string) => {
+    try {
+         //const storedFavorites = await getFavorites(userId); 
+         //set({ favorites: storedFavorites });
+    } catch (error) {
+         console.error("Error loading favorites:", error);
+    }
+
   },
   
   setQuery: (query) => set({ query: query, currentPage: 1 }),

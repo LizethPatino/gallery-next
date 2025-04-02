@@ -21,6 +21,6 @@ export interface ImageStore {
   sortImages: (option: "date" | "likes") => void;
   nextPage: () => void;
   prevPage: () => void;
-  toggleFavorite: (image: ImageType) => void;
-  loadFavorites: () => void;
+  toggleFavorite: (image: ImageType, userId: string) => Promise<void>;
+  loadFavorites: (userId:string) => void;
 }

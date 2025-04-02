@@ -1,4 +1,4 @@
-import { ImageType } from "@/types";
+import { ImageType } from "@/types/ImageTypes";
 import GalleryItem from "./GalleryItem";
 
 export default function GalleryGrid({ images }: { images: ImageType[] }) {
