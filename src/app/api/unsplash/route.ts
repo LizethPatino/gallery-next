@@ -25,6 +25,8 @@ export async function GET(req: Request) {
       imageId: img.id,
       imageUrl: img.urls.small,
       description: img.alt_description || "No description",
+      likes: img.likes,
+      created_at: img.created_at
     }));
 
     return NextResponse.json(formattedData);

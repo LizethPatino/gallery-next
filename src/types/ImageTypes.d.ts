@@ -19,6 +19,8 @@ export interface UnsplashImageType {
     small: string;
   };
   alt_description?: string;
+  likes:number;
+  created_at:string;
 }
 
 export interface ImageStore {
