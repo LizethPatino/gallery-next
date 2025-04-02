@@ -3,10 +3,12 @@
 import { useImageStore } from "@/store/useImageStore";
 import Image from "next/image";
 import { HeartIcon } from "@heroicons/react/24/solid";
+import { useSession } from "next-auth/react";
 
 export default function FavoritesPage() {
   const favorites = useImageStore((state) => state.favorites);
   const toggleFavorite = useImageStore((state) => state.toggleFavorite);
+  const { data: session } = useSession();
 
   return (
     <div className="px-4">
@@ -24,7 +26,13 @@ export default function FavoritesPage() {
                   className="rounded-lg shadow-md w-full h-auto object-cover"
                 />
                 <button
-                  onClick={() => toggleFavorite(img)}
+                  onClick={() => {
+                    if (session?.user?.id) {
+                      toggleFavorite(img, session.user.id);
+                    } else {
+                      console.error("User ID is not available");
+                    }
+                  }}
                   className="absolute top-2 right-2 text-white bg-black/50 p-1 rounded-full opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity"
                 >
                   <HeartIcon className="w-6 h-6 text-red-500" />
