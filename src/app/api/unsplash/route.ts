@@ -1,3 +1,4 @@
+import { UnsplashImageType } from "@/types/ImageTypes";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
@@ -19,7 +20,14 @@ export async function GET(req: Request) {
     }
 
     const data = await res.json();
-    return NextResponse.json(data);
+
+    const formattedData = data.results.map((img: UnsplashImageType) => ({
+      imageId: img.id,
+      imageUrl: img.urls.small,
+      description: img.alt_description || "No description",
+    }));
+
+    return NextResponse.json(formattedData);
   } catch (error) {
     console.error("Error fetching images:", error);
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });

@@ -10,7 +10,7 @@ export default function GalleryItem({ img }: { img: ImageType}) {
   const toggleFavorite = useImageStore((state) => state.toggleFavorite);
 
   const { data: session } = useSession();
-  const isFavorite = favorites.some((fav) => fav.id === img.id);
+  const isFavorite = favorites.some((fav) => fav.imageId === img.imageId);
 
 
   const handleToggleFavorite = async () => {
@@ -25,8 +25,8 @@ export default function GalleryItem({ img }: { img: ImageType}) {
   return (
     <div className="relative group">
       <Image
-        src={img.urls.small}
-        alt={img.alt_description || "Image"}
+        src={img.imageUrl}
+        alt={img.description || "Image"}
         width={300}
         height={200}
         className="rounded-lg shadow-md hover:scale-105 transition-transform"

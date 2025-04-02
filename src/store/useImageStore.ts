@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { ImageStore, ImageType } from "@/types/ImageTypes";
+import { ImageStore, FavoriteImageType } from "@/types/ImageTypes";
 import { getUnsplashImages } from "@/lib/unsplashService";
 import { addFavorite, getFavorites } from "@/lib/favoritesService";
 
@@ -11,28 +11,28 @@ export const useImageStore = create<ImageStore>((set, get) => ({
   imagesPerPage: 15,
   favorites: [],
 
-  toggleFavorite: async (image: ImageType, userId:string) => {
+  toggleFavorite: async (image: FavoriteImageType, userId:string) => {
     const { favorites } = get();
-    const isFavorite = favorites.some((fav)=> fav.id === image.id);
+    const isFavorite = favorites.some((fav)=> fav.imageId === image.imageId);
     let updatedFavorites;
 
     if (isFavorite) {
-      updatedFavorites = favorites.filter((fav) => fav.id !== image.id);
+      updatedFavorites = favorites.filter((fav) => fav.imageId !== image.imageId);
     } else {
       updatedFavorites = [...favorites, image]
     }
 
     set({favorites: updatedFavorites});
 
-     const { id, urls, alt_description } = image;
+     const { imageId, imageUrl, description } = image;
     
      try {
       if (isFavorite) {
         // Si se está eliminando el favorito de la base de datos
        // const data = await removeFavorite(userId, id);
-        console.log("Favorite removed:", data);
+        console.log("Favorite removed:");
       } else {
-        const data = await addFavorite(userId, id, urls.small, alt_description);
+        const data = await addFavorite(userId, imageId, imageUrl, description);
         console.log("Favorite added:", data);
       }
     } catch (error) {
@@ -62,7 +62,8 @@ export const useImageStore = create<ImageStore>((set, get) => ({
   fetchImages: async (query = get().query, page = get().currentPage, perPage = get().imagesPerPage) => {  
     const searchQuery = query && query.trim() !== "" ? query : "perros";
     const response = await getUnsplashImages(searchQuery, page, perPage);
-    set({ images: response.results || [] });
+    set({ images: response|| [] });
+    console.log("response results", response);
   },
   
   sortImages: (option) => {

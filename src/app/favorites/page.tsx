@@ -18,9 +18,9 @@ export default function FavoritesPage() {
         {favorites.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 p-4">
             {favorites.map((img) => (
-              <div key={img.id} className="relative group">
+              <div key={img.imageId} className="relative group">
                 <Image
-                  src={img.imageUrl || img.urls.small}
+                  src={img.imageUrl}
                   alt={img.description || "Favorite image"}
                   width={500}
                   height={350}

@@ -3,11 +3,22 @@ export interface ImageType {
     imageId: string;
     imageUrl: string;
     description: string;
-    id: string;
-    urls: { small: string};
-    alt_description: string;
     likes:number;
     created_at:string;
+}
+
+export interface FavoriteImageType {
+  imageId: string;
+  imageUrl: string;
+  description: string;
+}
+
+export interface UnsplashImageType {
+  id: string;
+  urls: {
+    small: string;
+  };
+  alt_description?: string;
 }
 
 export interface ImageStore {
@@ -16,7 +27,7 @@ export interface ImageStore {
   selectedOption: "date" | "likes";
   currentPage: number;
   imagesPerPage: number;
-  favorites: ImageType[];
+  favorites: FavoriteImageType[];
 
   setCurrentPage: (page: number) => void;
   setQuery: (query: string) => void;
@@ -24,6 +35,6 @@ export interface ImageStore {
   sortImages: (option: "date" | "likes") => void;
   nextPage: () => void;
   prevPage: () => void;
-  toggleFavorite: (image: ImageType, userId: string) => Promise<void>;
+  toggleFavorite: (image: FavoriteImageType, userId: string) => Promise<void>;
   loadFavorites: (userId:string) => void;
 }
