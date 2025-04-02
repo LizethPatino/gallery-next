@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { ImageStore } from "@/types";
+import { ImageStore } from "@/types/ImageTypes";
 import { getUnsplashImages } from "@/lib/unsplashService";
 
 
