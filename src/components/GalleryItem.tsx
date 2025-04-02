@@ -14,7 +14,6 @@ export default function GalleryItem({ img }: { img: ImageType}) {
 
 
   const handleToggleFavorite = async () => {
-    // Asegúrate de que session.user.id esté disponible antes de llamar al store
     if (session?.user?.id) {
       await toggleFavorite(img, session.user.id);
     } else {
