@@ -5,7 +5,7 @@ import { useImageStore } from "@/store/useImageStore";
 import { useSession } from "next-auth/react";
 
 export default function FavoritesLoader() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const loadFavorites = useImageStore((state) => state.loadFavorites);
 
   useEffect(() => {
@@ -19,8 +19,10 @@ export default function FavoritesLoader() {
       }
     };
 
-    fetchFavorites();
-  }, [session, loadFavorites]);
+    if (status === "authenticated") {
+      fetchFavorites();
+    }
+  }, [session, status, loadFavorites]); // Agrega session y status como dependencias
 
-  return null;
+  return null; // Este componente solo carga los favoritos y no renderiza nada
 }

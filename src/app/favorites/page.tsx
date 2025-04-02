@@ -10,6 +10,7 @@ export default function FavoritesPage() {
   const toggleFavorite = useImageStore((state) => state.toggleFavorite);
   const { data: session } = useSession();
 
+
   return (
     <div className="px-4">
       <h1 className="text-2xl font-bold text-center my-6">Your Favorites ❤️</h1>
@@ -19,8 +20,8 @@ export default function FavoritesPage() {
             {favorites.map((img) => (
               <div key={img.id} className="relative group">
                 <Image
-                  src={img.urls.small}
-                  alt={img.alt_description || "Favorite image"}
+                  src={img.imageUrl || img.urls.small}
+                  alt={img.description || "Favorite image"}
                   width={500}
                   height={350}
                   className="rounded-lg shadow-md w-full h-auto object-cover"
@@ -39,6 +40,7 @@ export default function FavoritesPage() {
                 </button>
               </div>
             ))}
+        
           </div>
         ) : (
           <p className="text-center text-gray-500 text-xl">No favorites yet! ❤️</p>

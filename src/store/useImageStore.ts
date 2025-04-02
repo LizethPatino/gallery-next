@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { ImageStore, ImageType } from "@/types/ImageTypes";
 import { getUnsplashImages } from "@/lib/unsplashService";
-import { addFavorite } from "@/lib/favoritesService";
+import { addFavorite, getFavorites } from "@/lib/favoritesService";
 
 export const useImageStore = create<ImageStore>((set, get) => ({
   images: [],
@@ -44,8 +44,9 @@ export const useImageStore = create<ImageStore>((set, get) => ({
 
   loadFavorites: async (userId:string) => {
     try {
-         //const storedFavorites = await getFavorites(userId); 
-         //set({ favorites: storedFavorites });
+         const storedFavorites = await getFavorites(userId); 
+         set({ favorites: storedFavorites });
+         console.log("favorites", storedFavorites);
     } catch (error) {
          console.error("Error loading favorites:", error);
     }

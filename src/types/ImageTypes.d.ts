@@ -1,5 +1,8 @@
 
 export interface ImageType {
+    imageId: string;
+    imageUrl: string;
+    description: string;
     id: string;
     urls: { small: string};
     alt_description: string;
