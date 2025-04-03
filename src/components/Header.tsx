@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
+import LoginButton from "./LoginButton";
 
 export default function Header() {
 
@@ -20,7 +21,6 @@ export default function Header() {
           priority 
         />
       </Link>
-
       <nav>
         <ul className="flex gap-6">
           <li>
@@ -28,7 +28,7 @@ export default function Header() {
               href="/" 
                className="text-gray-900 hover:text-gray-700 font-medium transition-colors"
             >
-              Inicio
+              Home
             </Link>
           </li>
           { session && 
@@ -39,6 +39,11 @@ export default function Header() {
           </Link>
           </li> 
 }
+        <li>
+         
+          <LoginButton/>
+
+        </li>
         </ul>
       </nav>
     </header>
