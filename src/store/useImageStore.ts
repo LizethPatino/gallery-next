@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { ImageStore, FavoriteImageType } from "@/types/ImageTypes";
 import { getUnsplashImages } from "@/lib/unsplashService";
-import { addFavorite, getFavorites } from "@/lib/favoritesService";
+import { addFavorite, getFavorites, removeFavorite } from "@/lib/favoritesService";
 
 export const useImageStore = create<ImageStore>((set, get) => ({
   images: [],
@@ -29,8 +29,8 @@ export const useImageStore = create<ImageStore>((set, get) => ({
      try {
       if (isFavorite) {
         // Si se está eliminando el favorito de la base de datos
-       // const data = await removeFavorite(userId, id);
-        console.log("Favorite removed:");
+        const data = await removeFavorite(userId, imageId);
+        console.log("Favorite removed:", data);
       } else {
         const data = await addFavorite(userId, imageId, imageUrl, description);
         console.log("Favorite added:", data);

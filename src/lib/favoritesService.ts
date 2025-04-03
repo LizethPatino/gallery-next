@@ -1,11 +1,11 @@
 export async function addFavorite(userId: string, imageId: string, imageUrl: string, description?: string) {
-    const res = await fetch("/api/favorites", {
+    const response = await fetch("/api/favorites", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ userId, imageId, imageUrl, description }),
     });
   
-    return res.json();
+    return response.json();
   }
 
   export async function getFavorites(userId: string) {
@@ -18,6 +18,20 @@ export async function addFavorite(userId: string, imageId: string, imageUrl: str
     } catch (error) {
       console.error("Error fetching favorites:", error);
       return [];
+    }
+  }
+
+  export async function removeFavorite(userId:string, imageId:string) {
+    try {
+      const response = await fetch(`api/favorites?userId=${userId}&imageId=${imageId}`,{
+        method: "DELETE"
+      });
+      if (!response.ok) {
+        throw new Error("Error al eliminar la imagen");
+      }
+      console.log("Imagen eliminada exitosamente");
+    } catch (error) {
+      console.error(error);
     }
   }
   
