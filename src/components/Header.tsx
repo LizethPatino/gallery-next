@@ -3,10 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
-import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
 
 export default function Header() {
-
   const { data: session } = useSession();
 
   return (
@@ -26,24 +25,32 @@ export default function Header() {
           <li>
             <Link 
               href="/" 
-               className="text-gray-900 hover:text-gray-700 font-medium transition-colors"
+              className="text-gray-900 hover:text-gray-700 font-medium transition-colors"
             >
               Home
             </Link>
           </li>
-          { session && 
-         <li>
-  
-         <Link href="/favorites" className="text-gray-700 hover:text-gray-900">
-              Favorites
-          </Link>
-          </li> 
-}
-        <li>
-         
-          <LoginButton/>
 
-        </li>
+          {session && (
+            <>
+              <li>
+                <Link href="/favorites" className="text-gray-700 hover:text-gray-900">
+                  Favorites
+                </Link>
+              </li>
+              <li>
+<LogoutButton/>
+              </li>
+            </>
+          )}
+
+          {!session && (
+            <li>
+              <Link href="/login" className="text-gray-700 hover:text-gray-900">
+                Log in
+              </Link>
+            </li>
+          )}
         </ul>
       </nav>
     </header>

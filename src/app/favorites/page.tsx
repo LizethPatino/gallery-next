@@ -13,7 +13,7 @@ export default function FavoritesPage() {
 
   return (
     <div className="px-4">
-      <h1 className="text-2xl font-bold text-center my-6">Your Favorites ❤️</h1>
+      <h1 className="text-2xl font-bold text-center my-6 text-gray-700">Your Favorites ❤️</h1>
       <div className="w-full">
         {favorites.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 p-4">
