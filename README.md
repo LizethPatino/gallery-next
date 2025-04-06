@@ -1,7 +1,7 @@
 # **Gallery Next.js Project (WIP)**  
 
 ## 📌 **Project Overview**  
-This is a **photo gallery application** built with **Next.js**. The project integrates the **Unsplash API**, allowing users to browse high-quality images with sorting options. It is currently **a work in progress (WIP)**, with planned features like authentication, a favorites section, and more.  
+This is a **photo gallery application** built with **Next.js**. The project integrates the **Unsplash API**, allowing users to browse high-quality images with sorting options. It is currently **a work in progress (WIP)**.
 
 The project will be **deployed on Vercel** once completed.  
 
@@ -15,7 +15,9 @@ The project will be **deployed on Vercel** once completed.
 - **Prisma** for database ORM and type-safe database access
 - **TailwindCSS** for modern styling  
 - **Heroicons** for UI icons
-- **Vitest and RTL** for Unit testing 
+- **Vitest and RTL** for Unit testing
+- **PostgreSQL** for the primary relational database
+- **Neon** for the cloud database provider
 
 ## 📂 **Project Features (Implemented & Planned)**  
 ✅ **Unsplash API integration**  
