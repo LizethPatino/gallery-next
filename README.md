@@ -9,11 +9,13 @@ The project will be **deployed on Vercel** once completed.
 - **Next.js** for server-side rendering, client-side rendering, and static site generation
 - **Next.js Image Optimization** for improved performance  
 - **React** for building UI components  
-- **Next-Auth** (WIP) for user authentication  
+- **Next-Auth** for user authentication  
 - **Zustand** for global state management  
-- **Axios** for API requests  
+- **Fetch** for API requests
+- **Prisma** for database ORM and type-safe database access
 - **TailwindCSS** for modern styling  
-- **Heroicons** for UI icons  
+- **Heroicons** for UI icons
+- **Vitest and RTL** for Unit testing 
 
 ## 📂 **Project Features (Implemented & Planned)**  
 ✅ **Unsplash API integration**  
@@ -25,9 +27,9 @@ The project will be **deployed on Vercel** once completed.
 ✅ **Modern UI with Tailwind CSS**  
 ✅ **Unsplash API integration**  
 ✅ **Modern UI with TailwindCSS and Heroicons**  
-🚧 **Authentication with Next-Auth (WIP)**  
-🚧 **Favorites section (WIP)**  
-🚀 **Unit testing (Planned)**  
+✅ **Authentication with Next-Auth**  
+✅ **Favorites section**  
+🚧 **Unit testing (WIP)**  
 🚀 **Image uploads & management (Planned)**  
 🚀 **Search and filter functionality (Planned)**  
 🚀 **Dark mode support (Planned)**  
