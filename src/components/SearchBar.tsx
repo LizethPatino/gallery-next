@@ -5,12 +5,11 @@ import { useImageStore } from "@/store/useImageStore";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 
 export default function SearchBar() {
-  const { query, setQuery, fetchImages } = useImageStore();
+  const { query, setQuery } = useImageStore();
   const [inputValue, setInputValue] = useState(query);
 
   const handleSearch = () => {
     setQuery(inputValue);
-    fetchImages(inputValue || "cats");
   };
 
   return (
