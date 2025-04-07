@@ -28,12 +28,9 @@ export const useImageStore = create<ImageStore>((set, get) => ({
     
      try {
       if (isFavorite) {
-        // Si se está eliminando el favorito de la base de datos
-        const data = await removeFavorite(userId, imageId);
-        console.log("Favorite removed:", data);
+        await removeFavorite(userId, imageId);
       } else {
-        const data = await addFavorite(userId, imageId, imageUrl, description);
-        console.log("Favorite added:", data);
+        await addFavorite(userId, imageId, imageUrl, description);
       }
     } catch (error) {
       console.error("Error with favorite operation:", error);
@@ -46,7 +43,6 @@ export const useImageStore = create<ImageStore>((set, get) => ({
     try {
          const storedFavorites = await getFavorites(userId); 
          set({ favorites: storedFavorites });
-         console.log("favorites", storedFavorites);
     } catch (error) {
          console.error("Error loading favorites:", error);
     }
@@ -63,7 +59,6 @@ export const useImageStore = create<ImageStore>((set, get) => ({
     const searchQuery = query && query.trim() !== "" ? query : "perros";
     const response = await getUnsplashImages(searchQuery, page, perPage);
     set({ images: response|| [] });
-    console.log("response results", response);
   },
   
   sortImages: (option) => {

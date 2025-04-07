@@ -27,9 +27,9 @@ export async function addFavorite(userId: string, imageId: string, imageUrl: str
         method: "DELETE"
       });
       if (!response.ok) {
-        throw new Error("Error al eliminar la imagen");
+        throw new Error("Error deleting image");
       }
-      console.log("Imagen eliminada exitosamente");
+      console.log("Image deleted successfully");
     } catch (error) {
       console.error(error);
     }

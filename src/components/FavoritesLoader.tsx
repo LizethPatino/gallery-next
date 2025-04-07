@@ -22,7 +22,7 @@ export default function FavoritesLoader() {
     if (status === "authenticated") {
       fetchFavorites();
     }
-  }, [session, status, loadFavorites]); // Agrega session y status como dependencias
+  }, [session, status, loadFavorites]);
 
-  return null; // Este componente solo carga los favoritos y no renderiza nada
+  return null;
 }
