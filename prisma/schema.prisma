@@ -18,7 +18,7 @@ model User {
   name     String?
   email    String   @unique
   image    String?
-  emailVerified  DateTime? // Asegúrate de que este campo sea de tipo `DateTime?`
+  emailVerified  DateTime?
   accounts Account[]
   sessions Session[]
   favorites     Favorite[] 
@@ -52,16 +52,16 @@ model Account {
   userId               String
   provider            String
   providerAccountId   String
-  type               String   // ← Este campo es necesario
+  type               String 
   user                 User     @relation(fields: [userId], references: [id])
-  access_token      String?  // Token de acceso
-  expires_at        Int?     // Expiración del token
-  refresh_token     String?  // Token de refresco
+  access_token      String? 
+  expires_at        Int?     
+  refresh_token     String?
   scope             String?
   token_type        String?
   id_token          String?
   session_state     String?
-  @@unique([provider, providerAccountId])  // Agregar clave compuesta
+  @@unique([provider, providerAccountId])
 
    @@map("account") 
 }
