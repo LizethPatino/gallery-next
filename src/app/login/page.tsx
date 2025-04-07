@@ -27,7 +27,6 @@ export default function LoginPage() {
 
   return (
     <div className="flex min-h-screen w-full">
-      {/* Imagen - Oculta en pantallas pequeñas */}
       <div className="w-3/5 hidden md:block relative">
         <Image
           src="https://images.unsplash.com/photo-1534367522650-7759528bb911?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MjUzMDB8MHwxfHNlYXJjaHwzN3x8cGVycm9zfGVufDB8fHx8MTc0MzcwNzgxOHww&ixlib=rb-4.0.3&q=80&w=1000"
@@ -36,18 +35,10 @@ export default function LoginPage() {
           className="object-cover w-full h-full"
         />
       </div>
-
-      {/* Formulario */}
       <div className="w-full md:w-2/5 flex flex-col justify-center items-center bg-gray-100 p-8 min-h-screen">
-        {/* Contenedor del formulario */}
         <div className="bg-white rounded-md shadow-lg p-8 w-80 h-70 flex flex-col items-center gap-6">
-          {/* Logo */}
           <Image src="/logo.svg" alt="AstraPic Logo" width={150} height={150} />
-
-          {/* Título */}
           <h2 className="text-xl font-bold text-gray-700">Welcome back!</h2>
-
-          {/* Botón de Google */}
           <LoginButton />
         </div>
       </div>
