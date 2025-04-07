@@ -3,12 +3,11 @@
 import Gallery from "@/components/Gallery";
 import SearchBar from "@/components/SearchBar";
 import SortOptions from "@/components/SortOptions";
-import { signOut, useSession } from "next-auth/react";
-import LoginButton from "@/components/LoginButton";
+import { useSession } from "next-auth/react";
 import Pagination from "@/components/Pagination";
 
 export default function Home() {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
 
   if (status === "loading") {
     return <div>Loading...</div>;
