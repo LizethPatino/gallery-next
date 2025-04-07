@@ -15,7 +15,10 @@ export async function GET(req: Request) {
         Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}`,
       },
     });
-  
+    
+    console.log("UNSPLASH_ACCESS_KEY:", process.env.UNSPLASH_ACCESS_KEY);
+
+
     if (!res.ok) {
       return NextResponse.json(
         { error: `Error ${res.status}: ${res.statusText}` },
