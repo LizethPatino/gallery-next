@@ -15,18 +15,19 @@ export default function Home() {
 
   return (
 <div className="px-2">
-      <SearchBar />
-      <div className="mt-4 flex flex-col">
-        <div className="mb-4 self-end">
-          <SortOptions />
-        </div>
-        <div className="w-full">
-          <Gallery />
-        </div>
-        <div className="w-full flex justify-center mt-8 mb-8">
-          <Pagination />
-        </div>
-      </div>
+  <SearchBar />
+  <div className="mt-4 flex flex-col">
+    <div className="mb-4 w-full flex justify-end">
+      <SortOptions />
     </div>
+    <div className="w-full">
+      <Gallery />
+    </div>
+    <div className="w-full flex justify-center mt-8 mb-8">
+      <Pagination />
+    </div>
+  </div>
+</div>
+
   );
 }

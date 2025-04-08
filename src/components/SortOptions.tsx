@@ -6,7 +6,7 @@ export default function SortOptions() {
   const { selectedOption, sortImages } = useImageStore();
 
   return (
-    <div className="flex items-center gap-2 p-2">
+    <div className="flex items-center gap-2 pt-2 pb-2 pr-8">
       <span className="text-gray-700 font-medium">Order By:</span>
       <select
         value={selectedOption}
