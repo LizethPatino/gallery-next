@@ -17,7 +17,7 @@ export default function SearchBar() {
       <div className="w-full max-w-6xl flex items-center bg-white p-1 sm:p-2 rounded-md shadow-lg border border-gray-200 focus:ring-primary">
         <input
           type="text"
-          className="flex-grow p-2 text-lg sm:text-xl border-none outline-none bg-transparent w-full sm:w-auto"
+          className="flex-grow p-2 text-md sm:text-xl border-none outline-none bg-transparent w-full sm:w-auto"
           placeholder="Type a keyword"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
