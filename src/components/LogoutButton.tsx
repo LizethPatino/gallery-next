@@ -6,7 +6,7 @@ export default function LogoutButton () {
       };
 
     return(
-        <button onClick={handleLogout}>
+        <button  className="cursor-pointer bg-primary text-white px-3 py-2 sm:px-5 rounded-md hover:bg-primary-dark transition text-sm sm:text-base" onClick={handleLogout}>
     Log out
        </button>
     );

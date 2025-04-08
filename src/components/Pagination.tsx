@@ -19,7 +19,7 @@ export default function Pagination() {
         Before
       </button>
         }
-      <span className="px-4 py-2 mx-2">Page {currentPage}</span>
+      <span className="px-4 py-2 mx-2  text-gray-500 font-bold">Page {currentPage}</span>
       <button
         onClick={nextPage}
         className="flex items-center gap-2 px-4 py-2 mx-2 bg-primary rounded-md hover:bg-primary-dark text-white"
