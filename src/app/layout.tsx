@@ -7,7 +7,7 @@ import FavoritesLoader from "@/components/FavoritesLoader";
 
 export const metadata: Metadata = {
   title: "AstraPic",
-  description: "Una galería de fotos mágica ✨",
+  description: "Magic Photo Library ✨",
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",

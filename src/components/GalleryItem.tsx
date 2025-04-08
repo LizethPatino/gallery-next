@@ -23,13 +23,13 @@ export default function GalleryItem({ img }: { img: ImageType}) {
 
 
   return (
-    <div className="relative group">
+    <div className="mb-6 relative w-full break-inside-avoid group">
       <Image
         src={img.imageUrl}
         alt={img.description || "Image"}
         width={300}
         height={200}
-        className="rounded-lg shadow-md hover:scale-105 transition-transform"
+        className="rounded-lg shadow-md hover:scale-105 transition-transform w-full h-auto"
       />
       {session &&
             <button
